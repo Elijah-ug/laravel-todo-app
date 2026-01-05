@@ -24,11 +24,20 @@
 
         <div class="flex items-center gap-6">
 
-          <div class="flex items-center gap-4 font-semibold">
+          @guest
+            <div class="flex items-center gap-4 font-semibold">
             <x-a-tag href="/register-user">Register</x-a-tag>
              <x-a-tag href="/login-user">Log In</x-a-tag>
-          {{-- <a href="#">Register</a> --}}
          </div>
+          @endguest
+
+          @auth
+          <x-a-addtodo href="/add-todo">+   Add Todo</x-a-addtodo>
+            <form method="POST" action="/logout">
+              @csrf
+              <x-danger-button>Logout</x-danger-button>
+            </form>
+          @endauth
 
           <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-11 rounded-full" />
          </div>

@@ -3,6 +3,7 @@
  <x-slot:heading> User</x-slot:heading>
 
  <form method="POST" action="/login-user" >
+    @csrf
 <div class="flex flex-col items-center justify-center gap-4 py-4 ">
 
     <div class="grid gap-2">

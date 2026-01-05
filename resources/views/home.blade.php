@@ -2,6 +2,10 @@
     <x-slot:heading>Elicom Elijah</x-slot:heading>
          <p>Hello from Kaboom</p>
 
-         <x-todo></x-todo>
+         @foreach ($todos as $todo )
+             <x-todo :todo="$todo" />
+         @endforeach
+
+         
 
 </x-app-layout>

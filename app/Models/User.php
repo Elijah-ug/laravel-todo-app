@@ -7,16 +7,17 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable
-{
+class User extends Authenticatable{
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+ * @property int $id
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ */
+
     protected $fillable = [
         'first_name',
         'last_name',
@@ -30,6 +31,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function todos(){
+        return $this->hasMany(Todo::class);
+    }
 
     //  * Get the attributes that should be cast. @return array<string, string>
     protected function casts(): array{

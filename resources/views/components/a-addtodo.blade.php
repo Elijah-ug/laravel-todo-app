@@ -1,0 +1,1 @@
+<a href="{{ $href }}" {{ $attributes->merge(["class"=>"text-green-600 bg-amber-200 p-2 rounded font-semibold" ]) }} >{{ $slot }}</a>
